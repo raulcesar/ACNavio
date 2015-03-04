@@ -7,33 +7,38 @@
 //
 
 #import "GamePlay.h"
-@interface GamePlay()
-    @property (nonatomic) CCNode *navio;
-
-@end
+//@interface GamePlay()
+//    @property (nonatomic, weak) CCNode *navio;
+//
+//@end
 
 
 
 @implementation GamePlay
--(void) move {
-    //for now make square jump...
-    CGPoint forceDirection = ccp(0.3, 1.0);
-    CGPoint impulse = ccpMult(forceDirection, 100);
-    [self.navio.physicsBody applyImpulse:impulse];
-}
+//-(void) move {
+//    //for now make square jump...
+//    CGPoint forceDirection = ccp(0.3, 1.0);
+//    CGPoint impulse = ccpMult(forceDirection, 100);
+//    [self.navio.physicsBody applyImpulse:impulse];
+//}
 
 -(void) didLoadFromCCB {
     self.userInteractionEnabled = YES;
+    
+}
+
+-(void) loadLevelNamed: (NSString*) levelCCB {
+//    self.navio = [self getChildByName:@"" recursively:YES]
 }
 
 -(void) touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    [self move];
+//    [self move];
 }
 
--(void) update:(CCTime)delta {
-    //clamp vel.
-    CGFloat yVelocity = clampf(self.navio.physicsBody.velocity.y, -1 * MAXFLOAT, 200.0f);
-    CGFloat xVelocity = clampf(self.navio.physicsBody.velocity.x, -1 * MAXFLOAT, 200.0f);
-    self.navio.physicsBody.velocity = ccp(xVelocity, yVelocity);
-}
+//-(void) update:(CCTime)delta {
+//    //clamp vel.
+//    CGFloat yVelocity = clampf(self.navio.physicsBody.velocity.y, -1 * MAXFLOAT, 200.0f);
+//    CGFloat xVelocity = clampf(self.navio.physicsBody.velocity.x, -1 * MAXFLOAT, 200.0f);
+//    self.navio.physicsBody.velocity = ccp(xVelocity, yVelocity);
+//}
 @end
